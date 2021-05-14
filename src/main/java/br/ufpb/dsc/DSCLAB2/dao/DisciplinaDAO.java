@@ -1,5 +1,6 @@
-package io.github.gabrielrleal.lab2dsc.dao;
-import io.github.gabrielrleal.lab2dsc.model.Disciplina;
+package br.ufpb.dsc.DSCLAB2.dao;
+
+import br.ufpb.dsc.DSCLAB2.entity.Disciplina;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

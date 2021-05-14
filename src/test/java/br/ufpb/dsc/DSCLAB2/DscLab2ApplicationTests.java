@@ -1,10 +1,10 @@
-package io.github.gabrielrleal.lab2dsc;
+package br.ufpb.dsc.DSCLAB2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Lab2dscApplicationTests {
+class DscLab2ApplicationTests {
 
 	@Test
 	void contextLoads() {

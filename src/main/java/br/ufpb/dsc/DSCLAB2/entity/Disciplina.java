@@ -1,19 +1,24 @@
-package io.github.gabrielrleal.lab2dsc.model;
+package br.ufpb.dsc.DSCLAB2.entity;
 
-import java.util.List;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.List;
+import java.lang.Double;
 @Entity
-public class Disciplina {
+public class Disciplina{
     @Id @GeneratedValue
     private long id;
     private String nome;
-    private double nota;
-    private int likes;
+    private double notas;
+    private double curtida;
 
-    private List<Comentario> comentarios;
+
 
 
     public Disciplina() {
@@ -28,13 +33,13 @@ public class Disciplina {
 
     }
 
-    public Disciplina(String nome, double nota, int likes, List<Comentario> comentarios) {
+    /*public Disciplina(String nome, List<Double> notas, int curtida, List<Comentario> comentarios) {
         super();
         this.nome = nome;
-        this.nota = nota;
-        this.likes = likes;
+        this.notas = notas;
+        this.curtida = curtida;
         this.comentarios = comentarios;
-    }
+    }*/
 
     public String getNome() {
         return nome;
@@ -44,29 +49,42 @@ public class Disciplina {
         this.nome = nome;
     }
 
-    public double getNota() {
-        return nota;
+    /*public Double getNotaMedia() {
+        double soma = 0;
+        double media = 0;
+        for(int i=0; i<=notas.size(); i++) {
+            soma = soma + i;
+
+
+        }
+        media = soma/notas.size();
+        return media;
+    }*/
+    public Double getNotas(){
+        return notas;
     }
 
-    public void setNota(double nota) {
-        this.nota = nota;
+    public void setNota() {
+        this.notas ++;
     }
 
-    public int getLikes() {
-        return likes;
+
+
+    public Double getCurtida() {
+        return curtida;
     }
 
-    public void setLikes(int likes) {
-        this.likes = likes;
+    public void setCurtida() {
+        this.curtida++;
     }
 
     public long getId() {
         return id;
     }
 
-    public List<Comentario> getComentarios() {
+   /* public List<Comentario> getComentarios() {
         return comentarios;
-    }
+    }*/
 
     @Override
     public int hashCode() {
@@ -89,6 +107,8 @@ public class Disciplina {
             return false;
         return true;
     }
+
+
 
 
 
