@@ -54,7 +54,7 @@ public class DisciplinasControlador {
     }
     //Retorna todas as disciplinas inseridas no sistema ordenadas pelo número de curtidas (da que tem mais curtidas para a que tem menos curtidas)
     @PostMapping("/curtidas/{id}")
-    public ResponseEntity<Disciplina> addCurtida(@Valid @PathVariable("id") Long id) {
+    public ResponseEntity<Disciplina> addCurtida(@Valid @PathVariable("id") Long id, @RequestHeader ("Authorization") String header) {
         try {
             return new ResponseEntity<>(disciplinaServico.addCurtida(id), HttpStatus.OK);
         } catch (HttpClientErrorException e) {
@@ -63,7 +63,7 @@ public class DisciplinasControlador {
     }
     // Insere um novo comentário na disciplina de identificador id
     @PostMapping("/comentarios/{id}")
-    public ResponseEntity<Disciplina> addComentario(@Valid @PathVariable("id") Long id, @Valid @RequestBody ComentarioDTO comentarioDTO) {
+    public ResponseEntity<Disciplina> addComentario(@Valid @PathVariable("id") Long id, @Valid @RequestBody ComentarioDTO comentarioDTO,@RequestHeader ("Authorization") String header) {
         try {
             Disciplina disciplina = disciplinaServico.getDisciplina(id);
             Comentario comentario = new Comentario(comentarioDTO.getComentario());
@@ -77,7 +77,7 @@ public class DisciplinasControlador {
     }
     //Atualiza a nota da disciplina de identificador id no sistema
     @PatchMapping("/nota/{id}")
-    public ResponseEntity<Disciplina> updateNota(@Valid @PathVariable("id") Long id, @Valid @RequestBody ObjectNode json) {
+    public ResponseEntity<Disciplina> updateNota(@Valid @PathVariable("id") Long id, @Valid @RequestBody ObjectNode json,@RequestHeader ("Authorization") String header) {
         try {
             double newNota = json.get("nota").asDouble();
             return new ResponseEntity<>(disciplinaServico.updateDisciplinaNota(id, newNota), HttpStatus.OK);
